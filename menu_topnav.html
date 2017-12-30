@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    font-family: "Lato", sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+#topnav {
+    height:       auto;
+    width:        100%;
+    background:   #111;
+	margin:       0;
+	padding:      0;
+    color:        #999;
+	font-size:    1.5em;
+}
+#topnav ul {
+	list-style-type: none;
+	margin:          0;
+	padding:         0;
+} #topnav > ul {
+	width:           75%;
+	display:         inline-block;
+} #topnav li {
+	display:         inline;
+	position:        relative;
+	margin-left:     .5em;
+} #topnav li ul {
+	display:         none;
+	position:        absolute;
+	z-index:         1;
+	left:            0;
+	top:             100;
+	min-width:       10em;
+	background:      #111;
+	color:           #999;
+} #topnav li li {
+	display:         list-item;
+	font-size:       .75em;
+}
+
+#topnav a {
+	display:         inline-block;
+	text-decoration: none;
+	padding:         .5em;
+	color:           inherit;
+	transition:      .3s;
+} #topnav a:hover {
+	color:           #EEEEEE;
+}
+
+#topnav .login {
+	float:           right;
+	margin-right:    .5em;
+}
+
+</style>
+<script>
+
+function toggleDrop(drop) {
+	if (drop.getElementsByTagName("ul")[0].style.display != "block") {
+		var siblings = drop.parentNode.children;
+		for (let i in siblings) {
+			if (siblings[i] !== drop && siblings[i].children) {
+				if (siblings[i].children.length > 1) {
+					siblings[i].children[1].style.display = "none";
+				}
+			} else if (siblings[i] === drop) {
+				drop.getElementsByTagName("ul")[0].style.display = "block";
+			}
+		}
+	} else {
+		drop.getElementsByTagName("ul")[0].style.display = "none";
+	}
+}
+/*
+function closeDrops () {
+	var droplists = document.getElementsByClassName("droplist");
+	for (let i in droplists) {
+		var openDropdown = droplists[i];
+		if (openDropdown.style.display !== "none") {
+			openDropdown.style.display = "none";
+		}
+	}
+}*/
+window.count = 0;
+window.onclick = function(event) {
+	alert(event.target.className);
+	if (!event.target.className("drop")) {
+		console.log(count);
+		count++;
+	}
+}
+</script>
+</head>
+<body>
+<nav id="topnav">
+	<ul>
+		<li onclick="toggleDrop(this)" class="drop"><a href="javascript:void(0)">About</a>
+			<ul class="droplist">
+				<li><a href="#">Our History</a></li>
+				<li><a href="#">Our Principles</a></li>
+				<li><a href="#">Our Company</a></li>
+				<li><a href="#">Careers</a></li>
+			</ul>
+		</li>
+		<li onclick="toggleDrop(this)" class="drop"><a href="javascript:void(0)">Products</a>
+			<ul class="droplist">
+				<li><a href="#">Jumping Jelly Bean</a></li>
+				<li><a href="#">Improved Cat Hammock</a></li>
+				<li><a href="#">Robotic House Cleaner</a></li>
+			</ul>
+		</li>
+		<li onclick="toggleDrop(this)" class="drop"><a href="javascript:void(0)">FAQ</a>
+			<ul class="droplist">
+				<li><a href="#">Why do lizards pee so much?</a></li>
+				<li><a href="#">Is my cat insane?</a></li>
+				<li><a href="#">What if Santa Clause hates the color red?</a></li>
+			</ul>
+		</li>
+		<li><a href="#">Contact</a></li>
+	</ul>
+	<a class="login" href="#">Login</a>
+</nav>
+<main id="content">
+<h2 onclick="closeDrops()">Navigation Menu Example</h2>
+</main>
+</body>
+</html> 
