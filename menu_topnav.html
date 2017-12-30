@@ -76,22 +76,17 @@ function toggleDrop(drop) {
 		drop.getElementsByTagName("ul")[0].style.display = "none";
 	}
 }
-/*
-function closeDrops () {
+
+function closeDrops() {
 	var droplists = document.getElementsByClassName("droplist");
 	for (let i in droplists) {
-		var openDropdown = droplists[i];
-		if (openDropdown.style.display !== "none") {
-			openDropdown.style.display = "none";
-		}
+		droplists[i].style.display = "none";
 	}
-}*/
+}
 window.count = 0;
 window.onclick = function(event) {
-	alert(event.target.className);
-	if (!event.target.className("drop")) {
-		console.log(count);
-		count++;
+	if (event.target.className !== "drop") {
+		closeDrops();
 	}
 }
 </script>
@@ -99,7 +94,7 @@ window.onclick = function(event) {
 <body>
 <nav id="topnav">
 	<ul>
-		<li onclick="toggleDrop(this)" class="drop"><a href="javascript:void(0)">About</a>
+		<li onclick="toggleDrop(this)"><a  class="drop" href="javascript:void(0)">About</a>
 			<ul class="droplist">
 				<li><a href="#">Our History</a></li>
 				<li><a href="#">Our Principles</a></li>
@@ -107,14 +102,14 @@ window.onclick = function(event) {
 				<li><a href="#">Careers</a></li>
 			</ul>
 		</li>
-		<li onclick="toggleDrop(this)" class="drop"><a href="javascript:void(0)">Products</a>
+		<li onclick="toggleDrop(this)"><a class="drop" href="javascript:void(0)">Products</a>
 			<ul class="droplist">
 				<li><a href="#">Jumping Jelly Bean</a></li>
 				<li><a href="#">Improved Cat Hammock</a></li>
 				<li><a href="#">Robotic House Cleaner</a></li>
 			</ul>
 		</li>
-		<li onclick="toggleDrop(this)" class="drop"><a href="javascript:void(0)">FAQ</a>
+		<li onclick="toggleDrop(this)"><a class="drop" href="javascript:void(0)">FAQ</a>
 			<ul class="droplist">
 				<li><a href="#">Why do lizards pee so much?</a></li>
 				<li><a href="#">Is my cat insane?</a></li>
@@ -126,7 +121,7 @@ window.onclick = function(event) {
 	<a class="login" href="#">Login</a>
 </nav>
 <main id="content">
-<h2 onclick="closeDrops()">Navigation Menu Example</h2>
+<h2>Navigation Menu Example</h2>
 </main>
 </body>
 </html> 
